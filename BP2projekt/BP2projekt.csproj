@@ -73,6 +73,15 @@
     <Compile Include="UserControls\Reziser\UcPrikazRezisera.xaml.cs">
       <DependentUpon>UcPrikazRezisera.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Zanr\UcDodajZanr.xaml.cs">
+      <DependentUpon>UcDodajZanr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Zanr\UcPrikazZanrova.xaml.cs">
+      <DependentUpon>UcPrikazZanrova.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Zanr\UcPromijeniZanr.xaml.cs">
+      <DependentUpon>UcPromijeniZanr.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,6 +119,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Zanr\UcDodajZanr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Zanr\UcPrikazZanrova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Zanr\UcPromijeniZanr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -140,7 +161,6 @@
   <ItemGroup>
     <Folder Include="UserControls\Film\" />
     <Folder Include="UserControls\Serija\Sezona\Epizoda\" />
-    <Folder Include="UserControls\Zanr\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BazaPodataka\BazaPodataka.csproj">

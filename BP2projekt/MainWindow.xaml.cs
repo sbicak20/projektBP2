@@ -1,6 +1,7 @@
 ﻿using BP2projekt.UserControls.Glumac;
 using BP2projekt.UserControls.Produkcijska_kuca;
 using BP2projekt.UserControls.Reziser;
+using BP2projekt.UserControls.Zanr;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,7 @@ namespace BP2projekt
 
         private void btnPrikazZanrova_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcPrikazZanrova());
         }
 
         private void btnCrtice_Click(object sender, RoutedEventArgs e)
