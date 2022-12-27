@@ -11,5 +11,6 @@ namespace Servisi
     {
         public static ReziserServis RezServis = new ReziserServis();
         public static ProdKucaServis ProdKucaServis = new ProdKucaServis();
+        public static GlumacServis GlumacServis = new GlumacServis();
     }
 }

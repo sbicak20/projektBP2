@@ -1,4 +1,5 @@
-﻿using BP2projekt.UserControls.Produkcijska_kuca;
+﻿using BP2projekt.UserControls.Glumac;
+using BP2projekt.UserControls.Produkcijska_kuca;
 using BP2projekt.UserControls.Reziser;
 using System;
 using System.Collections.Generic;
@@ -65,6 +66,11 @@ namespace BP2projekt
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GuiManager.mainWindow = this;
+        }
+
+        private void btnGlumci_Click(object sender, RoutedEventArgs e)
+        {
+            GuiManager.OpenContent(new UcPrikazGlumaca());
         }
     }
 }

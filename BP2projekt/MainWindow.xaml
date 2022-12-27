@@ -13,6 +13,7 @@
             <Button x:Name="btnPrikazSerija" Content="Serije" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazSerija_Click"></Button>
             <Button x:Name="btnPrikazRez" Content="Reziseri" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazRez_Click"></Button>
             <Button x:Name="btnPrikazProd" Content="Produkcijske kuce" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazProd_Click"></Button>
+            <Button x:Name="btnGlumci" Content="Glumci" FontSize="15" HorizontalContentAlignment="Center" Click="btnGlumci_Click"></Button>
             <Button x:Name="btnPrikazZanrova" Content="Zanrovi" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazZanrova_Click"></Button>
             <Button x:Name="btnCrtice" Content="----------------------" FontSize="15" HorizontalContentAlignment="Center" Click="btnCrtice_Click"></Button>
             <Button x:Name="btnZatvori" Content="Zatvori" FontSize="15" HorizontalContentAlignment="Center" Background="LightBlue" FontWeight="Bold" Click="btnZatvori_Click"></Button>

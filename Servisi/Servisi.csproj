@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalService.cs" />
+    <Compile Include="Servisi\GlumacServis.cs" />
     <Compile Include="Servisi\ProdKucaServis.cs" />
     <Compile Include="Servisi\ReziserServis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
