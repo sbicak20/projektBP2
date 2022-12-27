@@ -8,14 +8,14 @@
         Title="MainWindow" Height="720" Width="1280" Loaded="Window_Loaded">
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="200">
-            <Label Content="Izbornik" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Background="LightBlue"></Label>
-            <Button x:Name="btnPrikazFilmova" Content="Filmovi" FontSize="20" HorizontalContentAlignment="Center" Click="btnPrikazFilmova_Click"></Button>
-            <Button x:Name="btnPrikazSerija" Content="Serije" FontSize="20" HorizontalContentAlignment="Center" Click="btnPrikazSerija_Click"></Button>
-            <Button x:Name="btnPrikazRez" Content="Reziseri" FontSize="20" HorizontalContentAlignment="Center" Click="btnPrikazRez_Click"></Button>
-            <Button x:Name="btnPrikazProd" Content="Produkcijske kuce" FontSize="20" HorizontalContentAlignment="Center" Click="btnPrikazProd_Click"></Button>
-            <Button x:Name="btnPrikazZanrova" Content="Zanrovi" FontSize="20" HorizontalContentAlignment="Center" Click="btnPrikazZanrova_Click"></Button>
-            <Button x:Name="btnCrtice" Content="----------------------" FontSize="20" HorizontalContentAlignment="Center" Click="btnCrtice_Click"></Button>
-            <Button x:Name="btnZatvori" Content="Zatvori" FontSize="20" HorizontalContentAlignment="Center" Background="LightBlue" FontWeight="Bold" Click="btnZatvori_Click"></Button>
+            <Label Content="Izbornik" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" Background="LightBlue"></Label>
+            <Button x:Name="btnPrikazFilmova" Content="Filmovi" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazFilmova_Click"></Button>
+            <Button x:Name="btnPrikazSerija" Content="Serije" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazSerija_Click"></Button>
+            <Button x:Name="btnPrikazRez" Content="Reziseri" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazRez_Click"></Button>
+            <Button x:Name="btnPrikazProd" Content="Produkcijske kuce" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazProd_Click"></Button>
+            <Button x:Name="btnPrikazZanrova" Content="Zanrovi" FontSize="15" HorizontalContentAlignment="Center" Click="btnPrikazZanrova_Click"></Button>
+            <Button x:Name="btnCrtice" Content="----------------------" FontSize="15" HorizontalContentAlignment="Center" Click="btnCrtice_Click"></Button>
+            <Button x:Name="btnZatvori" Content="Zatvori" FontSize="15" HorizontalContentAlignment="Center" Background="LightBlue" FontWeight="Bold" Click="btnZatvori_Click"></Button>
         </StackPanel>
         <ContentControl x:Name="controlPanel"></ContentControl>
     </DockPanel>

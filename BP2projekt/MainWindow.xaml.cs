@@ -1,4 +1,5 @@
-﻿using BP2projekt.UserControls.Reziser;
+﻿using BP2projekt.UserControls.Produkcijska_kuca;
+using BP2projekt.UserControls.Reziser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace BP2projekt
 
         private void btnPrikazProd_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcPrikazProdKuca());
         }
 
         private void btnPrikazZanrova_Click(object sender, RoutedEventArgs e)

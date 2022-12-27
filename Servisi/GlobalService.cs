@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servisi.Servisi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace Servisi
     public static class GlobalService
     {
         public static ReziserServis RezServis = new ReziserServis();
+        public static ProdKucaServis ProdKucaServis = new ProdKucaServis();
     }
 }

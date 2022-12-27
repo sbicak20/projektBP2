@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\Produkcijska_kuca\UcDodajProdKucu.xaml.cs">
+      <DependentUpon>UcDodajProdKucu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Produkcijska_kuca\UcPrikazProdKuca.xaml.cs">
+      <DependentUpon>UcPrikazProdKuca.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Reziser\UcDodajRezisera.xaml.cs">
       <DependentUpon>UcDodajRezisera.xaml</DependentUpon>
     </Compile>
@@ -74,6 +80,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Produkcijska_kuca\UcDodajProdKucu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Produkcijska_kuca\UcPrikazProdKuca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Reziser\UcDodajRezisera.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,7 +126,6 @@
   <ItemGroup>
     <Folder Include="UserControls\Film\" />
     <Folder Include="UserControls\Glumac\" />
-    <Folder Include="UserControls\Produkcijska_kuca\" />
     <Folder Include="UserControls\Serija\Sezona\Epizoda\" />
     <Folder Include="UserControls\Zanr\" />
   </ItemGroup>
