@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilmModel.cs" />
     <Compile Include="GlumacModel.cs" />
     <Compile Include="ProdKucaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

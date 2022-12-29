@@ -34,6 +34,29 @@ namespace Servisi.Servisi
             return lista;
         }
 
+        public List<GlumacModel> GetGlumceZaFilm(int id)
+        {
+            List<GlumacModel> lista = new List<GlumacModel>();
+
+            GlobalDB.OtvoriVezu();
+            GlobalDB.NapisiUpit($"SELECT * FROM projektbp2.Glumac_Glumi_Film LEFT JOIN projektbp2.Glumac ON projektbp2.Glumac_Glumi_Film.Glumac_Glumac_id = projektbp2.Glumac.Glumac_id WHERE projektbp2.Glumac_Glumi_Film.Film_Film_id = {id};");
+            MySqlDataReader reader = GlobalDB.PozoviReadera();
+
+            while (reader.Read())
+            {
+                GlumacModel glumac = new GlumacModel
+                {
+                    Id = ReaderMethods.SafeGetInt32(reader, 2),
+                    Ime = ReaderMethods.SafeGetString(reader, 3),
+                    Prezime = ReaderMethods.SafeGetString(reader, 4)
+                };
+                lista.Add(glumac);
+            }
+
+            GlobalDB.ZatvoriVezu();
+            return lista;
+        }
+
         public void DodajGlumca(GlumacModel glumac)
         {
             GlobalDB.OtvoriVezu();

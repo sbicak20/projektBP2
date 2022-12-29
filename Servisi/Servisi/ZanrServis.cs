@@ -34,7 +34,30 @@ namespace Servisi.Servisi
             return lista;
         }
 
-        public void DodajZanr(ZanrModel zanr)
+        public List<ZanrModel> GetZanroveZaFilm(int id)
+        {
+            List<ZanrModel> lista = new List<ZanrModel>();
+
+            GlobalDB.OtvoriVezu();
+            GlobalDB.NapisiUpit($"SELECT * FROM projektbp2.Film_pripada_Zanr LEFT JOIN projektbp2.Zanr ON projektbp2.Film_pripada_Zanr.Zanr_Zanr_id = projektbp2.Zanr.Zanr_id WHERE projektbp2.Film_pripada_Zanr.Film_Film_id = {id};");
+            MySqlDataReader reader = GlobalDB.PozoviReadera();
+
+            while (reader.Read())
+            {
+                ZanrModel zanr = new ZanrModel
+                {
+                    Id = ReaderMethods.SafeGetInt32(reader, 2),
+                    Naziv = ReaderMethods.SafeGetString(reader, 3),
+                    Opis = ReaderMethods.SafeGetString(reader, 4)
+                };
+                lista.Add(zanr);
+            }
+
+            GlobalDB.ZatvoriVezu();
+            return lista;
+        }
+
+            public void DodajZanr(ZanrModel zanr)
         {
             GlobalDB.OtvoriVezu();
             GlobalDB.NapisiUpit($"INSERT INTO Zanr VALUES (default, '{zanr.Naziv}', '{zanr.Opis}');");

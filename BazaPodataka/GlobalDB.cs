@@ -37,5 +37,11 @@ namespace BazaPodataka
             cmd.Dispose();
             con.Close();
         }
+
+        public static void ConClose()
+        {
+            con.Close();
+        }
+        
     }
 }

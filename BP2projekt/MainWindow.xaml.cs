@@ -1,4 +1,6 @@
-﻿using BP2projekt.UserControls.Glumac;
+﻿using BazaPodataka;
+using BP2projekt.UserControls.Film;
+using BP2projekt.UserControls.Glumac;
 using BP2projekt.UserControls.Produkcijska_kuca;
 using BP2projekt.UserControls.Reziser;
 using BP2projekt.UserControls.Zanr;
@@ -31,7 +33,7 @@ namespace BP2projekt
 
         private void btnPrikazFilmova_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcPrikazFilmova());
         }
 
         private void btnPrikazSerija_Click(object sender, RoutedEventArgs e)
@@ -56,7 +58,7 @@ namespace BP2projekt
 
         private void btnCrtice_Click(object sender, RoutedEventArgs e)
         {
-
+            GlobalDB.ConClose();
         }
 
         private void btnZatvori_Click(object sender, RoutedEventArgs e)

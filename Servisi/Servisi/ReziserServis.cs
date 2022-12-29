@@ -40,6 +40,27 @@ namespace Servisi
             return lista;
         }
 
+        public ReziserModel GetReziser(int id)
+        {
+            ReziserModel reziser = new ReziserModel();
+            GlobalDB.OtvoriVezu();
+            GlobalDB.NapisiUpit($"SELECT * FROM Reziser WHERE Reziser_id = {id};");
+            MySqlDataReader reader = GlobalDB.PozoviReadera();
+
+            while (reader.Read())
+            {
+                reziser.Id = ReaderMethods.SafeGetInt32(reader, 0);
+                reziser.Ime = ReaderMethods.SafeGetString(reader, 1);
+                reziser.Prezime = ReaderMethods.SafeGetString(reader, 2);
+                reziser.Email = ReaderMethods.SafeGetString(reader, 3);
+                reziser.Osvojio_nagradu = ReaderMethods.SafeGetBoolean(reader, 4);
+                reziser.Nagrada = ReaderMethods.SafeGetString(reader, 5);
+            }
+
+            GlobalDB.ZatvoriVezu();
+            return reziser;
+        }
+
         public void DodajRezisera(ReziserModel reziser)
         {
             GlobalDB.OtvoriVezu();

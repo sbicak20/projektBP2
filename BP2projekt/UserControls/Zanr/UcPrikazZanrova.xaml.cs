@@ -57,7 +57,10 @@ namespace BP2projekt.UserControls.Zanr
 
         private void btnPromijeni_Click(object sender, RoutedEventArgs e)
         {
-            GuiManager.OpenContent(new UcPromijeniZanr((ZanrModel)dgZanrovi.SelectedItem));
+            if ((ZanrModel)dgZanrovi.SelectedItem != null){
+                GuiManager.OpenContent(new UcPromijeniZanr((ZanrModel)dgZanrovi.SelectedItem));
+            }
+           
         }
     }
 }

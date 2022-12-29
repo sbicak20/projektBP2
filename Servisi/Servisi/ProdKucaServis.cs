@@ -34,6 +34,24 @@ namespace Servisi.Servisi
             return lista;
         }
 
+        public ProdKucaModel GetProdKuca(int id)
+        {
+            ProdKucaModel prodKuca = new ProdKucaModel();
+            GlobalDB.OtvoriVezu();
+            GlobalDB.NapisiUpit($"SELECT * FROM Produkcijska_kuca WHERE Produkcijska_kuca_id = {id};");
+            MySqlDataReader reader = GlobalDB.PozoviReadera();
+
+            while (reader.Read())
+            {
+                prodKuca.Id = ReaderMethods.SafeGetInt32(reader, 0);
+                prodKuca.Naziv = ReaderMethods.SafeGetString(reader, 1);
+                prodKuca.Zemlja_porijekla = ReaderMethods.SafeGetString(reader, 2);
+            }
+
+            GlobalDB.ZatvoriVezu();
+            return prodKuca;
+        }
+
         public void DodajProdKucu(ProdKucaModel prodKuca)
         {
             GlobalDB.OtvoriVezu();

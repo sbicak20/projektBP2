@@ -13,5 +13,6 @@ namespace Servisi
         public static ProdKucaServis ProdKucaServis = new ProdKucaServis();
         public static GlumacServis GlumacServis = new GlumacServis();
         public static ZanrServis ZanrServis = new ZanrServis();
+        public static FilmServis FilmServis = new FilmServis();
     }
 }

@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\Film\UcDodajFilm.xaml.cs">
+      <DependentUpon>UcDodajFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Film\UcPrikazFilmova.xaml.cs">
+      <DependentUpon>UcPrikazFilmova.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Glumac\UcDodajGlumca.xaml.cs">
       <DependentUpon>UcDodajGlumca.xaml</DependentUpon>
     </Compile>
@@ -95,6 +101,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Film\UcDodajFilm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Film\UcPrikazFilmova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Glumac\UcDodajGlumca.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,7 +173,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserControls\Film\" />
     <Folder Include="UserControls\Serija\Sezona\Epizoda\" />
   </ItemGroup>
   <ItemGroup>
