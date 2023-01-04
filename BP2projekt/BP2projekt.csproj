@@ -79,6 +79,24 @@
     <Compile Include="UserControls\Reziser\UcPrikazRezisera.xaml.cs">
       <DependentUpon>UcPrikazRezisera.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Serija\Sezona\Epizoda\UcDodajEpizodu.xaml.cs">
+      <DependentUpon>UcDodajEpizodu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Serija\Sezona\Epizoda\UcPromijeniEpizodu.xaml.cs">
+      <DependentUpon>UcPromijeniEpizodu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Serija\Sezona\UcDodajSezonu.xaml.cs">
+      <DependentUpon>UcDodajSezonu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Serija\Sezona\UcPromijeniSezonu.xaml.cs">
+      <DependentUpon>UcPromijeniSezonu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Serija\UcPrikazSerija.xaml.cs">
+      <DependentUpon>UcPrikazSerija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Serija\UcPromijeniSeriju.xaml.cs">
+      <DependentUpon>UcPromijeniSeriju.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Zanr\UcDodajZanr.xaml.cs">
       <DependentUpon>UcDodajZanr.xaml</DependentUpon>
     </Compile>
@@ -133,6 +151,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Serija\Sezona\Epizoda\UcDodajEpizodu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Serija\Sezona\Epizoda\UcPromijeniEpizodu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Serija\Sezona\UcDodajSezonu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Serija\Sezona\UcPromijeniSezonu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Serija\UcPrikazSerija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Serija\UcPromijeniSeriju.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Zanr\UcDodajZanr.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,9 +214,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\Serija\Sezona\Epizoda\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BazaPodataka\BazaPodataka.csproj">
       <Project>{15fa4588-e624-4d79-943c-ca5892b2569c}</Project>

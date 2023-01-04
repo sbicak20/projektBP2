@@ -80,11 +80,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalService.cs" />
+    <Compile Include="Servisi\EpizodaServis.cs" />
     <Compile Include="Servisi\FilmServis.cs" />
     <Compile Include="Servisi\GlumacServis.cs" />
     <Compile Include="Servisi\ProdKucaServis.cs" />
     <Compile Include="Servisi\ReziserServis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servisi\SerijaServis.cs" />
+    <Compile Include="Servisi\SezonaServis.cs" />
     <Compile Include="Servisi\ZanrServis.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@ using BP2projekt.UserControls.Film;
 using BP2projekt.UserControls.Glumac;
 using BP2projekt.UserControls.Produkcijska_kuca;
 using BP2projekt.UserControls.Reziser;
+using BP2projekt.UserControls.Serija;
 using BP2projekt.UserControls.Zanr;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace BP2projekt
 
         private void btnPrikazSerija_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcPrikazSerija());
         }
 
         private void btnPrikazRez_Click(object sender, RoutedEventArgs e)
