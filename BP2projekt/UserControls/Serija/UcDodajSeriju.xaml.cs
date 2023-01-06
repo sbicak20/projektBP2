@@ -15,31 +15,37 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BP2projekt.UserControls.Serija.Sezona.Epizoda
+namespace BP2projekt.UserControls.Serija
 {
     /// <summary>
-    /// Interaction logic for UcDodajEpizodu.xaml
+    /// Interaction logic for UcDodajSeriju.xaml
     /// </summary>
-    public partial class UcDodajEpizodu : UserControl
+    public partial class UcDodajSeriju : UserControl
     {
-        private SezonaModel sezona;
-
-        public UcDodajEpizodu(SezonaModel sezona)
+        public UcDodajSeriju()
         {
             InitializeComponent();
-            this.sezona = sezona;
+        }
+
+        private void LoadCMB()
+        {
+            cmbProdKuca.ItemsSource = GlobalService.ProdKucaServis.GetProdKucas();
+            cmbReziser.ItemsSource = GlobalService.RezServis.GetRezisers();
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            EpizodaModel epizoda = new EpizodaModel();
+            SerijaModel serija = new SerijaModel();
 
-            epizoda.Naziv = txtNaziv.Text;
-            epizoda.Datum_izlaska = (DateTime)cldDatumIzlaska.SelectedDate;
-            epizoda.Sezona_id = sezona.Id;
-            epizoda.Trajanje = TimeSpan.Parse(txtTrajanje.Text);
+            serija.Naziv = txtNaziv.Text;
+            serija.Opis = txtOpis.Text;
+            serija.Ocjena_kritike = int.Parse(txtOcjenaKritike.Text);
+            serija.Popularnost = int.Parse(txtPopularnost.Text);
 
-            GlobalService.EpizodaServis.DodajEpizodu(epizoda);
+            serija.ProdKuca = cmbProdKuca.SelectedItem as ProdKucaModel;
+            serija.Reziser =  cmbReziser.SelectedItem as ReziserModel;
+
+            GlobalService.SerijaServis.DodajSeriju(serija);
             GuiManager.CloseContent();
         }
 
@@ -50,7 +56,7 @@ namespace BP2projekt.UserControls.Serija.Sezona.Epizoda
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            txtSezonaId.Text = sezona.Id.ToString();
+            LoadCMB();
         }
     }
 }

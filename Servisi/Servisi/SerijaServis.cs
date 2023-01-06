@@ -61,14 +61,14 @@ namespace Servisi.Servisi
         public void DodajSeriju(SerijaModel serija)
         {
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"INSERT INTO Serija VALUES (default, '{serija.Naziv}', {serija.Ocjena_kritike}, {serija.Popularnost}, {serija.ProdKuca.Id}, {serija.Reziser.Id});");
+            GlobalDB.NapisiUpit($"INSERT INTO Serija VALUES (default, '{serija.Naziv}', '{serija.Opis}', {serija.Ocjena_kritike}, {serija.Popularnost}, {serija.ProdKuca.Id}, {serija.Reziser.Id});");
             GlobalDB.PozoviReadera();
             GlobalDB.ZatvoriVezu();
         }
         public void PromijeniSeriju(SerijaModel serija)
         {
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"UPDATE Serija SET Naziv = '{serija.Naziv}', Opis = '{serija.Opis}', Ocjena_kritike = {serija.Ocjena_kritike}', Popularnost = {serija.Popularnost}' WHERE Serija_id = {serija.Id};");
+            GlobalDB.NapisiUpit($"UPDATE Serija SET Naziv = '{serija.Naziv}', Opis = '{serija.Opis}', Ocjena_kritike = {serija.Ocjena_kritike}, Popularnost = {serija.Popularnost}, Produkcijska_kuca_Produkcijska_kuca_id = {serija.ProdKuca.Id}, Reziser_Reziser_id = {serija.Reziser.Id} WHERE Serija_id = {serija.Id};");
             GlobalDB.PozoviReadera();
             GlobalDB.ZatvoriVezu();
         }

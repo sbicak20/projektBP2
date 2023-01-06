@@ -14,5 +14,8 @@ namespace Servisi
         public static GlumacServis GlumacServis = new GlumacServis();
         public static ZanrServis ZanrServis = new ZanrServis();
         public static FilmServis FilmServis = new FilmServis();
+        public static SezonaServis SezonaServis = new SezonaServis();
+        public static SerijaServis SerijaServis = new SerijaServis();
+        public static EpizodaServis EpizodaServis = new EpizodaServis();
     }
 }

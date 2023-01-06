@@ -1,4 +1,9 @@
-﻿using System;
+﻿using BP2projekt.UserControls.Serija.Sezona;
+using BP2projekt.UserControls.Serija.Sezona.Epizoda;
+using Modeli;
+using Servisi;
+using Servisi.Servisi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,59 +30,116 @@ namespace BP2projekt.UserControls.Serija
             InitializeComponent();
         }
 
+        
+        private SezonaModel DohvatiSezonu()
+        {
+            return dgSezone.SelectedItem as SezonaModel;
+        }
+
+        private SerijaModel DohvatiSeriju()
+        {
+            return dgSerije.SelectedItem as SerijaModel;
+        }
+
+        private EpizodaModel DohvatiEpizodu()
+        {
+            return dgEpizode.SelectedItem as EpizodaModel;
+        }
+
+        private void RefreshSerije()
+        {
+            dgSerije.ItemsSource = GlobalService.SerijaServis.GetSerijas();
+        }
+
+        private void RefreshSezone(SerijaModel serija)
+        {
+            if (serija == null)
+            {
+                return;
+            }
+            dgSezone.ItemsSource = GlobalService.SezonaServis.GetSezona(serija.Id);
+        }
+        private void RefreshEpizode(SezonaModel sezona)
+        {
+            if (sezona == null)
+            {
+                return;
+            }
+            dgEpizode.ItemsSource = GlobalService.EpizodaServis.GetEpizodas(sezona.Id);
+        }
+
         private void dgSerije_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (dgSerije.CurrentItem != null)
+            {
+                GlobalSerije.dohvacenaSerija = DohvatiSeriju();
+                RefreshSezone(GlobalSerije.dohvacenaSerija);
+            }
         }
 
         private void btnDodajSeriju_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcDodajSeriju());
         }
 
         private void btnPromijeniSeriju_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcPromijeniSeriju(DohvatiSeriju()));
         }
 
         private void btnObrisiSeriju_Click(object sender, RoutedEventArgs e)
         {
-
+            GlobalSerije.dohvacenaSerija = DohvatiSeriju();
+            GlobalService.SerijaServis.ObrisiSeriju(GlobalSerije.dohvacenaSerija);
+            RefreshSerije();
         }
 
         private void dgSezone_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            GlobalSerije.dohvacenaSezona = DohvatiSezonu();
+            if (GlobalSerije.dohvacenaSezona != null)
+            {
+                RefreshEpizode(GlobalSerije.dohvacenaSezona);
+            }
+            
         }
 
         private void btnDodajSezonu_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcDodajSezonu(GlobalSerije.dohvacenaSerija));
         }
 
         private void btnPromijeniSezonu_Click(object sender, RoutedEventArgs e)
         {
-
+            GuiManager.OpenContent(new UcPromijeniSezonu(GlobalSerije.dohvacenaSezona));
         }
 
         private void btnObrisiSezonu_Click(object sender, RoutedEventArgs e)
         {
-
+            GlobalSerije.dohvacenaSezona = DohvatiSezonu();
+            GlobalService.SezonaServis.ObrisiSezonu(GlobalSerije.dohvacenaSezona);
+            RefreshSezone(GlobalSerije.dohvacenaSerija);
+            RefreshEpizode(GlobalSerije.dohvacenaSezona);
         }
 
         private void btnDodajEpizodu_Click(object sender, RoutedEventArgs e)
         {
-
+            GlobalSerije.dohvacenaSezona = DohvatiSezonu();
+            GuiManager.OpenContent(new UcDodajEpizodu(GlobalSerije.dohvacenaSezona));
         }
 
         private void btnObrisiEpizodu_Click(object sender, RoutedEventArgs e)
         {
-
+            EpizodaModel epizoda = DohvatiEpizodu();
+            GlobalService.EpizodaServis.ObrisiEpizodu(epizoda);
+            RefreshEpizode(GlobalSerije.dohvacenaSezona);
+            RefreshSezone(GlobalSerije.dohvacenaSerija);
         }
 
         private void btnPromijeniEpizodu_Click(object sender, RoutedEventArgs e)
         {
-
+            EpizodaModel epizoda = DohvatiEpizodu();
+            GuiManager.OpenContent(new UcPromijeniEpizodu(epizoda));
         }
 
         private void dgEpizode_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -87,7 +149,9 @@ namespace BP2projekt.UserControls.Serija
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            RefreshSerije();
+            RefreshSezone(GlobalSerije.dohvacenaSerija);
+            RefreshEpizode(GlobalSerije.dohvacenaSezona);
         }
 
         private void btnDodajGlumca_Click(object sender, RoutedEventArgs e)

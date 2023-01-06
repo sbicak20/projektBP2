@@ -61,6 +61,9 @@
     <Compile Include="UserControls\Film\UcPrikazFilmova.xaml.cs">
       <DependentUpon>UcPrikazFilmova.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Film\UcPromijeniFilm.xaml.cs">
+      <DependentUpon>UcPromijeniFilm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Glumac\UcDodajGlumca.xaml.cs">
       <DependentUpon>UcDodajGlumca.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,9 @@
     </Compile>
     <Compile Include="UserControls\Serija\Sezona\UcPromijeniSezonu.xaml.cs">
       <DependentUpon>UcPromijeniSezonu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Serija\UcDodajSeriju.xaml.cs">
+      <DependentUpon>UcDodajSeriju.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Serija\UcPrikazSerija.xaml.cs">
       <DependentUpon>UcPrikazSerija.xaml</DependentUpon>
@@ -124,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Film\UcPrikazFilmova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Film\UcPromijeniFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Serija\Sezona\UcPromijeniSezonu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Serija\UcDodajSeriju.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

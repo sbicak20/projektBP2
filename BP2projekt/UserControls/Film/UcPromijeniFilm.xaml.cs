@@ -15,38 +15,39 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BP2projekt.UserControls.Serija
+namespace BP2projekt.UserControls.Film
 {
     /// <summary>
-    /// Interaction logic for UcPromijeniSeriju.xaml
+    /// Interaction logic for UcPromijeniFilm.xaml
     /// </summary>
-    public partial class UcPromijeniSeriju : UserControl
+    public partial class UcPromijeniFilm : UserControl
     {
-        private SerijaModel serija;
-        public UcPromijeniSeriju(SerijaModel serija)
+
+        private FilmModel film;
+        public UcPromijeniFilm(FilmModel film)
         {
             InitializeComponent();
-            this.serija = serija;
-        }
-
-        private void LoadCMB()
-        {
-            cmbProdKuca.ItemsSource = GlobalService.ProdKucaServis.GetProdKucas();
-            cmbReziser.ItemsSource = GlobalService.RezServis.GetRezisers();
+            this.film = film;
         }
 
         private void btnPromijeni_Click(object sender, RoutedEventArgs e)
         {
-            serija.Naziv = txtNaziv.Text;
-            serija.Opis = txtOpis.Text;
-            serija.Ocjena_kritike = int.Parse(txtOcjenaKritike.Text);
-            serija.Popularnost = int.Parse(txtPopularnost.Text);
+            film.Naziv = txtNaziv.Text;
+            film.Trajanje = TimeSpan.Parse(txtTrajanje.Text);
+            film.Opis = txtOpis.Text;
+            film.Reziser = cmbReziser.SelectedItem as ReziserModel;
+            film.ProdKuca = cmbProdKuca.SelectedItem as ProdKucaModel;
+            film.Dob = int.Parse(txtDob.Text);
+            film.Popularnost = int.Parse(txtPopularnost.Text);
+            film.OcjenaKritike = int.Parse(txtOcjenaKritike.Text);
 
-            serija.ProdKuca = cmbProdKuca.SelectedItem as ProdKucaModel;
-            serija.Reziser = cmbReziser.SelectedItem as ReziserModel;
-
-            GlobalService.SerijaServis.PromijeniSeriju(serija);
+            GlobalService.FilmServis.PromijeniFilm(film);
             GuiManager.CloseContent();
+        }
+        private void LoadCMB()
+        {
+            cmbProdKuca.ItemsSource = GlobalService.ProdKucaServis.GetProdKucas();
+            cmbReziser.ItemsSource = GlobalService.RezServis.GetRezisers();
         }
 
         private void btnOdustani_Click(object sender, RoutedEventArgs e)
@@ -57,14 +58,16 @@ namespace BP2projekt.UserControls.Serija
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             LoadCMB();
-            txtNaziv.Text = serija.Naziv;
-            txtOpis.Text = serija.Opis;
-            txtOcjenaKritike.Text = serija.Ocjena_kritike.ToString();
-            txtPopularnost.Text = serija.Popularnost.ToString();
+            txtNaziv.Text = film.Naziv;
+            txtDob.Text = film.Dob.ToString();
+            txtOcjenaKritike.Text = film.OcjenaKritike.ToString();
+            txtPopularnost.Text = film.Popularnost.ToString();
+            txtTrajanje.Text = film.Trajanje.ToString();
+            txtOpis.Text = film.Opis;
 
             for (int i = 0; i < cmbProdKuca.Items.Count; i++)
             {
-                if (serija.ProdKuca.Id == (cmbProdKuca.Items[i] as ProdKucaModel).Id)
+                if (film.ProdKuca.Id == (cmbProdKuca.Items[i] as ProdKucaModel).Id)
                 {
                     cmbProdKuca.SelectedIndex = i;
                     break;
@@ -73,7 +76,7 @@ namespace BP2projekt.UserControls.Serija
 
             for (int i = 0; i < cmbReziser.Items.Count; i++)
             {
-                if (serija.Reziser.Id == (cmbReziser.Items[i] as ReziserModel).Id)
+                if (film.Reziser.Id == (cmbReziser.Items[i] as ReziserModel).Id)
                 {
                     cmbReziser.SelectedIndex = i;
                     break;

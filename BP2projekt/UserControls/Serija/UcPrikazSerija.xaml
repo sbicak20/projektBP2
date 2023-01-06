@@ -11,7 +11,7 @@
             <Label Content="Prikaz serija" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15"></Label>
         
         <Label Content="Serije" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15" Margin="30,15,30,0"></Label>
-        <DataGrid x:Name="dgSerije" Margin="30,0,30,0" DockPanel.Dock="Top" AlternatingRowBackground="LightBlue" Height="120" SelectionChanged="dgSerije_SelectionChanged"></DataGrid>
+        <DataGrid x:Name="dgSerije" SelectedItem="0" Margin="30,0,30,0" DockPanel.Dock="Top" AlternatingRowBackground="LightBlue" Height="120" SelectionChanged="dgSerije_SelectionChanged"></DataGrid>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="30,0,30,5">
             <Button x:Name="btnDodajSeriju" Click="btnDodajSeriju_Click" Width="60" Height="30" Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4"></Button>
             <Button x:Name="btnPromijeniSeriju" Click="btnPromijeniSeriju_Click" Width="60" Height="30" Content="Promijeni" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4"></Button>
@@ -19,7 +19,7 @@
         </StackPanel>
 
         <Label Content="Sezone za seriju" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15" Margin="30,15,30,0"></Label>
-        <DataGrid x:Name="dgSezone" Margin="30,0,30,0" DockPanel.Dock="Top" AlternatingRowBackground="LightBlue" Height="120" SelectionChanged="dgSezone_SelectionChanged"></DataGrid>
+        <DataGrid x:Name="dgSezone" SelectedItem="0" Margin="30,0,30,0" DockPanel.Dock="Top" AlternatingRowBackground="LightBlue" Height="120" SelectionChanged="dgSezone_SelectionChanged"></DataGrid>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="30,0,30,10">
             <Button x:Name="btnDodajSezonu" Click="btnDodajSezonu_Click" Width="60" Height="30" Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4"></Button>
             <Button x:Name="btnPromijeniSezonu" Click="btnPromijeniSezonu_Click" Width="60" Height="30" Content="Promijeni" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4"></Button>
@@ -27,7 +27,7 @@
         </StackPanel>
 
         <Label Content="Epizode za sezonu" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15" Margin="30,15,30,0"></Label>
-        <DataGrid x:Name="dgEpizode" Margin="30,0,30,0" DockPanel.Dock="Top" AlternatingRowBackground="LightBlue" Height="120" SelectionChanged="dgEpizode_SelectionChanged"></DataGrid>
+        <DataGrid x:Name="dgEpizode" SelectedItem="0" Margin="30,0,30,0" DockPanel.Dock="Top" AlternatingRowBackground="LightBlue" Height="120" SelectionChanged="dgEpizode_SelectionChanged"></DataGrid>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="30,0,30,10">
             <Button x:Name="btnDodajEpizodu" Click="btnDodajEpizodu_Click" Width="60" Height="30" Content="Dodaj" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4"></Button>
             <Button x:Name="btnPromijeniEpizodu" Click="btnPromijeniEpizodu_Click" Width="60" Height="30" Content="Promijeni" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="4"></Button>

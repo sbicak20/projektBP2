@@ -32,6 +32,10 @@ namespace BP2projekt.UserControls.Film
             dgFilmovi.ItemsSource = GlobalService.FilmServis.GetFilms();
         }
 
+        private FilmModel DohvatiFilm()
+        {
+            return dgFilmovi.SelectedItem as FilmModel;
+        }
 
         private void RefreshGlumciZanr(FilmModel film)
         {
@@ -52,7 +56,8 @@ namespace BP2projekt.UserControls.Film
 
         private void btnPromijeni_Click(object sender, RoutedEventArgs e)
         {
-            //GuiManager.OpenContent(new UcPromijeniFilm());
+            FilmModel dohvaceniFilm = DohvatiFilm();
+            GuiManager.OpenContent(new UcPromijeniFilm(dohvaceniFilm));
         }
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)

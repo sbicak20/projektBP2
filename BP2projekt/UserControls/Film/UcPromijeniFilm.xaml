@@ -1,13 +1,13 @@
-﻿<UserControl x:Class="BP2projekt.UserControls.Serija.Sezona.UcPromijeniSezonu"
+﻿<UserControl x:Class="BP2projekt.UserControls.Film.UcPromijeniFilm"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BP2projekt.UserControls.Serija.Sezona"
+             xmlns:local="clr-namespace:BP2projekt.UserControls.Film"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800" Loaded="UserControl_Loaded">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <DockPanel>
-        <Label Content="Promjena sezone" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15"></Label>
+        <Label Content="Promjena filma" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15"></Label>
         <Grid DockPanel.Dock="Top" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="130"></ColumnDefinition>
@@ -16,8 +16,8 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
-                <RowDefinition Height="70"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
@@ -29,19 +29,24 @@
 
             <Label Content="Naziv:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right"></Label>
             <Label Content="Opis:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"></Label>
-            <Label Content="Datum izlaska:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"></Label>
+            <Label Content="Trajanje:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"></Label>
             <Label Content="Ocjena kritike:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"></Label>
-            <Label Content="Serija_id:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right"></Label>
-            <Label Content="Naziv serije:" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right"></Label>
-
+            <Label Content="Popularnost:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right"></Label>
+            <Label Content="Dob:" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right"></Label>
+            <Label Content="Produkcijska kuca:" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right"></Label>
+            <Label Content="Reziser:" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right"></Label>
 
             <TextBox x:Name="txtNaziv" Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" Margin="5"></TextBox>
             <TextBox x:Name="txtOpis" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" Margin="5"></TextBox>
-            <Calendar x:Name="cldDatumIzlaska" Grid.Column="1" Grid.Row="2"></Calendar>
+            <TextBox x:Name="txtTrajanje" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center" Margin="5"></TextBox>
             <TextBox x:Name="txtOcjenaKritike" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" Margin="5"></TextBox>
-            <TextBox x:Name="txtSerijaId" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Center" Margin="5" IsEnabled="False"></TextBox>
+            <TextBox x:Name="txtPopularnost" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Center" Margin="5"></TextBox>
+            <TextBox x:Name="txtDob" Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Center" Margin="5"></TextBox>
+            <ComboBox x:Name="cmbProdKuca" Grid.Column="1" Grid.Row="6" Margin="5"></ComboBox>
+            <ComboBox x:Name="cmbReziser" Grid.Column="1" Grid.Row="7" Margin="5"></ComboBox>
 
-            <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right">
+
+            <StackPanel Grid.Column="1" Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="btnPromijeni" Content="Promijeni" Click="btnPromijeni_Click" Width="60" Height="30" Margin="5"></Button>
                 <Button x:Name="btnOdustani" Content="Odustani" Click="btnOdustani_Click" Width="60" Height="30" Margin="5"></Button>
             </StackPanel>

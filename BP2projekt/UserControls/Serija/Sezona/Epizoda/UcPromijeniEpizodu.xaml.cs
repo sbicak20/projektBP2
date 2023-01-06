@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modeli;
+using Servisi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,35 @@ namespace BP2projekt.UserControls.Serija.Sezona.Epizoda
     /// </summary>
     public partial class UcPromijeniEpizodu : UserControl
     {
-        public UcPromijeniEpizodu()
+        private EpizodaModel epizoda;
+        public UcPromijeniEpizodu(EpizodaModel epizoda)
         {
             InitializeComponent();
+            this.epizoda = epizoda;
+        }
+
+        private void btnPromijeni_Click(object sender, RoutedEventArgs e)
+        {
+
+            epizoda.Naziv = txtNaziv.Text;
+            epizoda.Datum_izlaska = (DateTime)cldDatumIzlaska.SelectedDate;
+            epizoda.Trajanje = TimeSpan.Parse(txtTrajanje.Text);
+
+            GlobalService.EpizodaServis.PromijeniEpizodu(epizoda);
+            GuiManager.CloseContent();
+        }
+
+        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        {
+            GuiManager.CloseContent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtNaziv.Text = epizoda.Naziv;
+            txtSezonaId.Text = epizoda.Sezona_id.ToString();
+            txtTrajanje.Text = epizoda.Trajanje.ToString();
+            cldDatumIzlaska.SelectedDate = epizoda.Datum_izlaska;
         }
     }
 }

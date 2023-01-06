@@ -82,6 +82,7 @@
     <Compile Include="GlobalService.cs" />
     <Compile Include="Servisi\EpizodaServis.cs" />
     <Compile Include="Servisi\FilmServis.cs" />
+    <Compile Include="GlobalSerije.cs" />
     <Compile Include="Servisi\GlumacServis.cs" />
     <Compile Include="Servisi\ProdKucaServis.cs" />
     <Compile Include="Servisi\ReziserServis.cs" />

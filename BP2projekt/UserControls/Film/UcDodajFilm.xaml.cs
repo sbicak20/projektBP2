@@ -45,6 +45,7 @@ namespace BP2projekt.UserControls.Film
             film.ProdKuca = cmbProdKuca.SelectedItem as ProdKucaModel;
             film.Dob = int.Parse(txtDob.Text);
             film.Popularnost = int.Parse(txtPopularnost.Text);
+            film.OcjenaKritike = int.Parse(txtOcjenaKritike.Text);
 
             GlobalService.FilmServis.DodajFilm(film);
             GuiManager.CloseContent();

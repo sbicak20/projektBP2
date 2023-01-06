@@ -15,7 +15,7 @@ namespace Servisi.Servisi
         {
             List<EpizodaModel> lista = new List<EpizodaModel>();
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"SELECT * FROM Epizoda WHERE Serija_serija_id = {id};");
+            GlobalDB.NapisiUpit($"SELECT * FROM Epizoda WHERE Sezona_Sezona_id = {id};");
             MySqlDataReader reader = GlobalDB.PozoviReadera();
 
             while (reader.Read())
@@ -37,7 +37,7 @@ namespace Servisi.Servisi
         public void DodajEpizodu(EpizodaModel epizoda)
         {
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"INSERT INTO Epizoda VALUES (default, '{epizoda.Naziv}', GETDATE(), '{epizoda.Trajanje}', {epizoda.Sezona_id});");
+            GlobalDB.NapisiUpit($"INSERT INTO Epizoda VALUES (default, '{epizoda.Naziv}', '{epizoda.Datum_izlaska:yyyy-MM-dd}', '{epizoda.Trajanje}', {epizoda.Sezona_id});");
             GlobalDB.PozoviReadera();
             GlobalDB.ZatvoriVezu();
         }
@@ -45,7 +45,7 @@ namespace Servisi.Servisi
         public void PromijeniEpizodu(EpizodaModel epizoda)
         {
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"UPDATE Epizoda SET Naziv = '{epizoda.Naziv}', Trajanje = '{epizoda.Trajanje}', Sezona_sezona_id = {epizoda.Sezona_id} WHERE Epizoda_id = {epizoda.Id};");
+            GlobalDB.NapisiUpit($"UPDATE Epizoda SET Naziv = '{epizoda.Naziv}', Trajanje = '{epizoda.Trajanje}', Datum_izlaska = '{epizoda.Datum_izlaska:yyyy-MM-dd}', Sezona_Sezona_id = {epizoda.Sezona_id} WHERE Epizoda_id = {epizoda.Id};");
             GlobalDB.PozoviReadera();
             GlobalDB.ZatvoriVezu();
         }

@@ -11,11 +11,11 @@ namespace Servisi.Servisi
 {
     public class SezonaServis
     {
-        public List<SezonaModel> GetSezonas(int id)
+        public List<SezonaModel> GetSezona(int id)
         {
             List<SezonaModel> lista = new List<SezonaModel>();
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"SELECT * FROM Sezona WHERE Serija_serija_id = {id}");
+            GlobalDB.NapisiUpit($"SELECT * FROM Sezona WHERE Serija_Serija_id = {id}");
             MySqlDataReader reader = GlobalDB.PozoviReadera();
 
             while (reader.Read())
@@ -39,7 +39,7 @@ namespace Servisi.Servisi
         public void DodajSezonu(SezonaModel sezona)
         {
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"INSERT INTO Sezona VALUES (default, '{sezona.Naziv}', '{sezona.Opis}', GETDATE(), 0, {sezona.Ocjena_kritike}, {sezona.Serija_id};)");
+            GlobalDB.NapisiUpit($"INSERT INTO Sezona VALUES (default, '{sezona.Naziv}', '{sezona.Opis}', '{sezona.Datum_izlaska:yyyy-MM-dd}', {sezona.Broj_epizoda}, {sezona.Ocjena_kritike}, {sezona.Serija_id});");
             GlobalDB.PozoviReadera();
             GlobalDB.ZatvoriVezu();
         }
@@ -47,7 +47,7 @@ namespace Servisi.Servisi
         public void PromijeniSezonu(SezonaModel sezona)
         {
             GlobalDB.OtvoriVezu();
-            GlobalDB.NapisiUpit($"UPDATE Sezona SET Naziv = '{sezona.Naziv}', Opis = '{sezona.Opis}', Ocjena_kritike = {sezona.Ocjena_kritike}, Serija_serija_id = {sezona.Serija_id} WHERE Sezona = {sezona.Id};");
+            GlobalDB.NapisiUpit($"UPDATE Sezona SET Naziv = '{sezona.Naziv}', Opis = '{sezona.Opis}', Ocjena_kritike = {sezona.Ocjena_kritike}, Datum_izlaska = '{sezona.Datum_izlaska:yyyy-MM-dd}', Serija_Serija_id = {sezona.Serija_id} WHERE Sezona_id = {sezona.Id};");
             GlobalDB.PozoviReadera();
             GlobalDB.ZatvoriVezu();
         }

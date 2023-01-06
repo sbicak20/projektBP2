@@ -5,8 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BP2projekt.UserControls.Serija.Sezona"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="500" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <DockPanel>
+        <Label Content="Dodavanje nove sezone" DockPanel.Dock="Top" FontWeight="Bold" HorizontalContentAlignment="Center" Background="LightBlue" FontSize="15"></Label>
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Content="Naziv:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right"></Label>
+            <Label Content="Opis:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"></Label>
+            <Label Content="Datum izlaska:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"></Label>
+            <Label Content="Ocjena kritike:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"></Label>
+            <Label Content="Serija_id:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right"></Label>
+            <Label Content="Naziv serije:" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right"></Label>
+
+
+            <TextBox x:Name="txtNaziv" Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" Margin="5"></TextBox>
+            <TextBox x:Name="txtOpis" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" Margin="5"></TextBox>
+            <Calendar x:Name="cldDatumIzlaska" Grid.Column="1" Grid.Row="2"></Calendar>
+            <TextBox x:Name="txtOcjenaKritike" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" Margin="5"></TextBox>
+            <TextBox x:Name="txtSerijaId" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Center" Margin="5" IsEnabled="False"></TextBox>
+            <TextBox x:Name="txtSerijaNaziv" Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Center" Margin="5" IsEnabled="False"></TextBox>
+
+            <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnDodaj" Content="Dodaj" Click="btnDodaj_Click" Width="60" Height="30" Margin="5"></Button>
+                <Button x:Name="btnOdustani" Content="Odustani" Click="btnOdustani_Click" Width="60" Height="30" Margin="5"></Button>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
 </UserControl>
