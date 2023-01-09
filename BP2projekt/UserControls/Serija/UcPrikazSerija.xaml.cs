@@ -30,7 +30,31 @@ namespace BP2projekt.UserControls.Serija
             InitializeComponent();
         }
 
-        
+        private List<GlumacModel> GetGlumceZaCMB()
+        {
+            List<GlumacModel> cijelaLista = GlobalService.GlumacServis.GetGlumce();
+            return cijelaLista.ToList();
+        }
+
+        private List<ZanrModel> GetZanroveZaCMB()
+        {
+            List<ZanrModel> cijelaLista = GlobalService.ZanrServis.GetZanrove();
+            return cijelaLista.ToList();
+        }
+
+        private void LoadCMB()
+        {
+            cmbDodajGlumca.ItemsSource = GetGlumceZaCMB();
+            cmbDodajZanr.ItemsSource = GetZanroveZaCMB();
+        }
+
+        private void RefreshGlumciZanr()
+        {
+            dgGlumci.ItemsSource = GlobalService.GlumacServis.GetGlumceZaSeriju(GlobalSerije.dohvacenaSerija.Id);
+            dgZanrovi.ItemsSource = GlobalService.ZanrServis.GetZanroveZaSeriju(GlobalSerije.dohvacenaSerija.Id);
+        }
+
+
         private SezonaModel DohvatiSezonu()
         {
             return dgSezone.SelectedItem as SezonaModel;
@@ -74,6 +98,7 @@ namespace BP2projekt.UserControls.Serija
             {
                 GlobalSerije.dohvacenaSerija = DohvatiSeriju();
                 RefreshSezone(GlobalSerije.dohvacenaSerija);
+                RefreshGlumciZanr();
             }
         }
 
@@ -126,6 +151,8 @@ namespace BP2projekt.UserControls.Serija
         {
             GlobalSerije.dohvacenaSezona = DohvatiSezonu();
             GuiManager.OpenContent(new UcDodajEpizodu(GlobalSerije.dohvacenaSezona));
+            RefreshEpizode(GlobalSerije.dohvacenaSezona);
+            RefreshSezone(GlobalSerije.dohvacenaSerija);
         }
 
         private void btnObrisiEpizodu_Click(object sender, RoutedEventArgs e)
@@ -140,6 +167,8 @@ namespace BP2projekt.UserControls.Serija
         {
             EpizodaModel epizoda = DohvatiEpizodu();
             GuiManager.OpenContent(new UcPromijeniEpizodu(epizoda));
+            RefreshEpizode(GlobalSerije.dohvacenaSezona);
+            RefreshSezone(GlobalSerije.dohvacenaSerija);
         }
 
         private void dgEpizode_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,16 +181,29 @@ namespace BP2projekt.UserControls.Serija
             RefreshSerije();
             RefreshSezone(GlobalSerije.dohvacenaSerija);
             RefreshEpizode(GlobalSerije.dohvacenaSezona);
+            LoadCMB();
         }
 
         private void btnDodajGlumca_Click(object sender, RoutedEventArgs e)
         {
-
+            GlumacModel glumac = cmbDodajGlumca.SelectedItem as GlumacModel;
+            if (GlobalSerije.dohvacenaSerija != null)
+            {
+                LoadCMB();
+                GlobalService.GlumacServis.DodajGlumcaZaSeriju(glumac, GlobalSerije.dohvacenaSerija.Id);
+                RefreshGlumciZanr();
+            }
         }
 
         private void btnDodajZanr_Click(object sender, RoutedEventArgs e)
         {
-
+            ZanrModel zanr = cmbDodajZanr.SelectedItem as ZanrModel;
+            if (GlobalSerije.dohvacenaSerija != null)
+            {
+                LoadCMB();
+                GlobalService.ZanrServis.DodajZanrZaSeriju(GlobalSerije.dohvacenaSerija.Id, zanr);
+                RefreshGlumciZanr();
+            }
         }
     }
 }

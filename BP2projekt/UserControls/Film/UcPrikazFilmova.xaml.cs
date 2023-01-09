@@ -43,10 +43,10 @@ namespace BP2projekt.UserControls.Film
             dgZanrovi.ItemsSource = GlobalService.ZanrServis.GetZanroveZaFilm(film.Id);
         }
 
-        private void LoadCMB(FilmModel film)
+        private void LoadCMB()
         {
-            cmbDodajGlumca.ItemsSource = GetGlumceZaCMB(film);
-            cmbDodajZanr.ItemsSource = GetZanroveZaCMB(film);
+            cmbDodajGlumca.ItemsSource = GetGlumceZaCMB();
+            cmbDodajZanr.ItemsSource = GetZanroveZaCMB();
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
@@ -77,19 +77,25 @@ namespace BP2projekt.UserControls.Film
 
         private void btnDodajGlumca_Click(object sender, RoutedEventArgs e)
         {
+            GlumacModel glumac = cmbDodajGlumca.SelectedItem as GlumacModel;
             FilmModel dohvaceniFilm = (FilmModel)dgFilmovi.SelectedItem;
             if (dohvaceniFilm != null)
             {
-                LoadCMB(dohvaceniFilm);
+                LoadCMB();
+                GlobalService.GlumacServis.DodajGlumcaZaFilm(glumac, dohvaceniFilm.Id);
+                RefreshGlumciZanr(dohvaceniFilm);
             }
         }
 
         private void btnDodajZanr_Click(object sender, RoutedEventArgs e)
         {
+            ZanrModel zanr = cmbDodajZanr.SelectedItem as ZanrModel;
             FilmModel dohvaceniFilm = (FilmModel)dgFilmovi.SelectedItem;
             if (dohvaceniFilm != null)
             {
-                LoadCMB(dohvaceniFilm);
+                LoadCMB();
+                GlobalService.ZanrServis.DodajZanrZaFilm(dohvaceniFilm.Id, zanr);
+                RefreshGlumciZanr(dohvaceniFilm);
             }
         }
 
@@ -99,24 +105,21 @@ namespace BP2projekt.UserControls.Film
             if (dohvaceniFilm != null)
             {
                 RefreshGlumciZanr(dohvaceniFilm);
-                LoadCMB(dohvaceniFilm);
+                LoadCMB();
             }
         }
 
-        private List<GlumacModel> GetGlumceZaCMB(FilmModel film)
+        private List<GlumacModel> GetGlumceZaCMB()
         {
             List<GlumacModel> cijelaLista = GlobalService.GlumacServis.GetGlumce();
-            List<GlumacModel> listaTrenutnih = GlobalService.GlumacServis.GetGlumceZaFilm(film.Id);
-
-            return cijelaLista.Except(listaTrenutnih).ToList();
+            return cijelaLista.ToList();
         }
 
-        private List<ZanrModel> GetZanroveZaCMB(FilmModel film)
+        private List<ZanrModel> GetZanroveZaCMB()
         {
             List<ZanrModel> cijelaLista = GlobalService.ZanrServis.GetZanrove();
-            List<ZanrModel> listaTrenutnih = GlobalService.ZanrServis.GetZanroveZaFilm(film.Id);
 
-            return cijelaLista.Except(listaTrenutnih).ToList();
+            return cijelaLista.ToList();
         }
     }
 }
